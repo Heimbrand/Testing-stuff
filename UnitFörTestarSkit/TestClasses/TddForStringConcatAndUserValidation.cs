@@ -1,9 +1,9 @@
 using System.Linq;
 using testarskit.Övningar;
 
-namespace UnitFörTestarSkit
+namespace UnitFörTestarSkit.TestClasses
 {
-    public  class UnitTest1
+    public class TddForStringConcatAndUserValidation
     {
         [Fact]
         public static void JoinStrings_WithValidInput_ConcateNatedString()
@@ -31,7 +31,7 @@ namespace UnitFörTestarSkit
 
             // act
             bool result = UserValidation_.ValidateUser(trueHotmail, truePassword);
-           
+
             // assert
             Assert.True(result);
         }
@@ -46,12 +46,12 @@ namespace UnitFörTestarSkit
             string falsePassword = "baj";
 
             // act
-       
+
             bool result = UserValidation_.ValidateHotmailFormat(trueHotmail);
 
             // assert
             Assert.True(result);
-            
+
         }
         [Fact]
         public static void ValidateUser_WithValidPassword_ReturnsTrue()
@@ -64,9 +64,8 @@ namespace UnitFörTestarSkit
             string falsePassword = "baj";
 
             // act
-           
+
             bool result = UserValidation_.ValidatePasswordLength(truePassword);
-            
 
             // assert
             Assert.True(result);
