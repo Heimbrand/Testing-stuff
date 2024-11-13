@@ -18,6 +18,7 @@ public class UserTests
     [Fact]
     public void AddUserTest()
     {
+        List<User> users = new();
        // Arrange 
        User user = new User
        {
@@ -25,13 +26,15 @@ public class UserTests
            Name = "Test",
            Password = "Test1"
        };
-       A.CallTo(() => _repo.AddUser(user));
+       A.CallTo(() => _repo.AddUser(user)).Invokes((User u) => users.Add(u));
 
        // Act 
        _service.AddUser(user);
 
        // Assert
        A.CallTo(() => _repo.AddUser(user)).MustHaveHappenedOnceExactly();
+       Assert.Contains(user, users);
+       
     }
     [Fact]
     public void UpdateUserTest()

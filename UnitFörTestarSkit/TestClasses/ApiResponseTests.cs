@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using testarskit.Mock;
+using testarskit.Mock.Entities;
 
 namespace UnitFörTestarSkit.TestClasses;
 
